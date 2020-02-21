@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -27,7 +28,8 @@ def gradientDescent(X, y, theta, alpha, iterations):
 def normalEqn(X, y):
     return np.linalg.inv(np.dot(X.T, X)).dot(X.T).dot(y)
 
-data = np.loadtxt('/Users/chanwai/Work/test/ex1/ex1data1.txt', delimiter=',')
+path = os.path.dirname(os.path.abspath(__file__)) + '/ex1data1.txt'
+data = np.loadtxt(path, delimiter=',')
 
 X = data[:, 0]
 y = data[:, 1]
@@ -78,7 +80,8 @@ for i, theta0 in enumerate(theta0_vals):
 # plt.scatter(theta[0][0], theta[1][0])
 # plt.show()
 
-data = np.loadtxt('/Users/chanwai/Work/test/ex1/ex1data2.txt', delimiter=',')
+path = os.path.dirname(os.path.abspath(__file__)) + '/ex1data2.txt'
+data = np.loadtxt(path, delimiter=',')
 X = data[:, 0:2]
 y = data[:, 2]
 m = len(y)
@@ -109,7 +112,7 @@ print('Predicted price of a 1650 sq-ft, 3 br house (using gradient descent):', p
 # plt.ylabel('Cost J');
 # plt.show()
 
-data = np.loadtxt('/Users/chanwai/Work/test/ex1/ex1data2.txt', delimiter=',')
+data = np.loadtxt(path, delimiter=',')
 X = data[:, 0:2]
 y = data[:, 2]
 
