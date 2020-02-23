@@ -198,5 +198,6 @@ Theta1 = nn_params[:hidden_layer_size * (input_layer_size + 1)].reshape(hidden_l
 Theta2 = nn_params[(hidden_layer_size * (input_layer_size + 1)):].reshape(num_labels, (hidden_layer_size + 1))
 
 pred = predict(Theta1, Theta2, X)
+pred = pred.reshape(pred.size, 1)
 acc = np.mean(np.mean((pred==y)*100))
 print('Training Set Accuracy: %.4f'%acc)
